@@ -1,0 +1,52 @@
+from tkinter import *
+root = Tk()
+root.geometry("250x350")
+root.title("First Calculator")
+
+store = StringVar()
+screen = Entry(root, font="lucida 20 bold", textvariable=store, justify=RIGHT).pack(fill=X, pady=10, padx=10)
+
+def show(x):
+    data = store.get()
+    store.set(data+x)
+
+
+def result():
+    data = store.get()
+    try:
+        store.set(eval(data))
+    except:
+        store.set("Error")
+
+def clear():
+    store.set("")
+
+f = Frame(root, bg="red")
+b = Button(f, text="1", font="lucida 20 bold", command=lambda : show("1")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="2", font="lucida 20 bold", command=lambda : show("2")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="3", font="lucida 20 bold", command=lambda : show("3")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="4", font="lucida 20 bold", command=lambda : show("4")).pack(side=LEFT, padx=5, pady=5)
+f.pack()
+
+f = Frame(root, bg="red")
+b = Button(f, text="5", font="lucida 20 bold", command=lambda : show("5")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="6", font="lucida 20 bold", command=lambda : show("6")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="7", font="lucida 20 bold", command=lambda : show("7")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="8", font="lucida 20 bold", command=lambda : show("8")).pack(side=LEFT, padx=5, pady=5)
+f.pack()
+
+f = Frame(root, bg="red")
+b = Button(f, text="9", font="lucida 21 bold", command=lambda : show("9")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="0", font="lucida 22 bold", command=lambda : show("0")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="+", font="lucida 21 bold", command=lambda : show("+")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="-", font="lucida 22 bold", command=lambda : show("-")).pack(side=LEFT, padx=5, pady=5)
+f.pack()
+
+f = Frame(root, bg="red")
+b = Button(f, text="*", font="lucida 22 bold", command=lambda : show("*")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="/", font="lucida 23 bold", command=lambda : show("/")).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="C", font="lucida 20 bold", command=clear).pack(side=LEFT, padx=5, pady=5)
+b = Button(f, text="=", font="lucida 20 bold", command=result).pack(side=LEFT, padx=5, pady=5)
+f.pack()
+
+mainloop()
