@@ -49,4 +49,4 @@ b = Button(f, text="C", font="lucida 20 bold", command=clear).pack(side=LEFT, pa
 b = Button(f, text="=", font="lucida 20 bold", command=result).pack(side=LEFT, padx=5, pady=5)
 f.pack()
 
-mainloop(
+mainloop()
